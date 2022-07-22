@@ -1,0 +1,84 @@
+﻿@import "_Config.scss";
+
+body {
+    background-color: $DarkBlue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+
+    @media (max-width: 600px) {
+        padding-inline: 1rem;
+    }
+}
+
+.card {
+    width: 540px;
+    background-color: $DarkGrayishBlue;
+    box-shadow: 30px 50px 80px rgba(0, 0, 0, 0.100202);
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    animation: card 0.5s linear;
+
+
+    @media (max-width: 600px) {
+        width: 100%;
+    }
+
+    .advice-number {
+        width: 100%;
+        text-align: center;
+        color: $NeonGreen;
+        padding-top: 3rem;
+        font-weight: 800;
+        font-size: 13px;
+        line-height: 18px;
+        letter-spacing: 4.08571px;
+    }
+
+    .qoute {
+        font-weight: 800;
+        font-size: 28px;
+        line-height: 38px;
+        letter-spacing: -0.3px;
+        color: $LightCyan;
+        padding-inline: 3rem;
+        padding-bottom: 40px;
+    }
+
+    .img-container {
+        img {
+            margin-inline: auto;
+            padding-bottom: 72px;
+        }
+    }
+
+    .dice-container {
+        position: absolute;
+        padding: 20px;
+        background-color: $NeonGreen;
+        border-radius: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.25s ease-in;
+
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0px 0px 40px $NeonGreen;
+        }
+    }
+}
+
+@keyframes card{
+    0%{
+        opacity: 0;
+        transform: translateY(-5rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

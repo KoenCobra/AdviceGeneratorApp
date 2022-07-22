@@ -1,0 +1,37 @@
+﻿@page "/"
+@using AdviceGeneratorApp.Sdk.Abstractions
+@using AdviceGeneratorApp.Model
+@inject IAdviceApi AdviceApi
+
+<div class="card">
+    <h5 class="advice-number">ADVICE #@Advice.slip.id</h5>
+
+    <div class="qoute">
+        <q>
+            @Advice.slip.advice
+        </q>
+    </div>
+
+    <div class="img-container">
+        <img src="Images/pattern-divider-desktop.svg" alt="" />
+    </div>
+
+    <div class="dice-container" @onclick="GenerateAdvice">
+        <img src="Images/icon-dice.svg" alt="" />
+    </div>
+</div>
+
+@code
+{
+    private Advice Advice { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GenerateAdvice();
+    }
+
+    private async Task GenerateAdvice()
+    {
+        Advice = await AdviceApi.GetAdvice();
+    }
+}
